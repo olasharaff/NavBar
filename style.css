@@ -1,0 +1,73 @@
+.flex{
+    display: flex;
+    gap: 1rem
+}
+
+.primary-header{
+    justify-content: space-between;
+    align-items: center;
+    padding:0 clamp(1rem, 5vw, 4rem);
+}
+
+.primary-navigation{
+
+/* Flex Wrap to make it responsive */
+flex-wrap: wrap;
+align-items: center;
+}
+
+ul a, li{
+    text-decoration: none;
+    list-style: none;
+}
+@media screen and (max-width: 48rem) {
+/* Toggle Button */
+.primary-navigation {
+    /* Position: Fixed to make the whole header(navbar and logo) to stay fixed even when scrolling the screen */
+    position: fixed;
+    /* you can increase the height and width using the insert */
+    inset: 0 0 45% 35%;
+    /* flex-direction to change nav list from row to column */
+    flex-direction: column;
+    background-color: #2ec6ce9a;
+    backdrop-filter: blur(10px);
+    padding-top: 8rem;
+    transform: translateX(100%);
+    transition: transform 350ms ease-in-out;
+    z-index: 999;
+   
+
+    & li {
+        padding: 0.2rem 0;
+    }
+
+
+}
+
+.mobile-toggle {
+    display: block;
+    position: absolute;
+    background-color: transparent;
+    /* random hamburger svg link */
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg);
+    background-repeat: no-repeat;
+    border: none;
+    width: 2rem;
+    aspect-ratio: 1;
+    top: 1.2rem;
+    right: 2rem;
+    z-index: 9999;
+}
+
+.mobile-toggle[aria-expanded='true'] {
+    /* Random Close Svg Link */
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/ce/Black_close_x.svg);
+    width: 1.5rem;
+    aspect-ratio: 1;
+    margin: 0.2rem 0;
+}
+
+.primary-navigation[data-visible='true'] {
+    transform: translateX(0%);
+}
+}
